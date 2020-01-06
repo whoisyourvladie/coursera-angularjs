@@ -49,7 +49,7 @@
         controllerAs: 'reg',
       })
       .state('public.myinfo', {
-        url: '/signup',
+        url: '/myinfo',
         templateUrl: 'src/public/account/myinfo.html',
         controller: 'AccountController',
         controllerAs: 'reg',
