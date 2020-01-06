@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="col-md-12">
+    <div ng-show="reg.isRegistered">
+      <h3>MY INFO</h3>
+      <p>First Name: {{reg.data.fn}}</p>
+      <p>Last Name: {{reg.data.ln}}</p>
+      <p>Email: {{reg.data.email}}</p>
+      <p>Phone: {{reg.data.phone}}</p>
+      <p>Fav Menu Item Title: {{reg.data.fav.title}}</p>
+      <p>Fav Menu Item Description: {{reg.data.fav.description}}</p>
+      <img src="https://sraka-motyka.herokuapp.com/images/{{reg.data.fav.short_name}}.jpg" alt="">
+    </div>
+    <div ng-hide="reg.isRegistered">
+      You're not registered yet! Please <a ui-sref="public.signup"> Sign Up</a>
+    </div>
+
+  </div>
+</div>

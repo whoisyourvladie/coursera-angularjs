@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
+    <form class="form" name='signupForm' novalidate>
+
+      <input class="form-control" type="text" name="firstname" placeholder="First Name" ng-model="reg.user.firstname" required minlength="2" ng-maxlength="50">
+      <span ng-if="(signupForm.firstname.$error.minlength || signupForm.firstname.$error.required) && signupForm.firstname.$touched">
+        Username must be at least 2 characters long
+      </span>
+      <span ng-if="signupForm.firstname.$error.maxlength && signupForm.firstname.$touched">
+        Username must not be longer than 50 characters
+      </span>
+      <br>
+
+      <input class="form-control" type="text" name="lastname" placeholder="Last Name" ng-model="reg.user.lastname" required minlength="2" ng-maxlength="50">
+      <span ng-if="(signupForm.lastname.$error.minlength || signupForm.lastname.$error.required) && signupForm.lastname.$touched">
+        Username must be at least 2 characters long
+      </span>
+      <span ng-if="signupForm.lastname.$error.maxlength && signupForm.lastname.$touched">
+        Username must not be longer than 50 characters
+      </span>
+      <br>
+
+      <input class="form-control" type="email" name="email" placeholder="Email" ng-model="reg.user.email" required>
+      <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+        Must be a valid email address: handle@domain format
+      </span>
+      <br>
+
+      <input class="form-control" type="text" name="phone" placeholder="Phone ###-###-####" ng-model="reg.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})">
+      <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+        Phone must be in the format ###-###-####.
+      </span>
+      <br>
+
+      <input class="form-control" type="text" name="menuitem" placeholder="Your Fav Menu Item" ng-model="reg.user.menuitem" required minlength="2" ng-maxlength="4" ng-blur="reg.checkfav()">
+      <span ng-if="(signupForm.firstname.$error.minlength || signupForm.firstname.$error.required) && signupForm.firstname.$touched">
+        Username must be at least 2 characters long
+      </span>
+      <span ng-if="signupForm.firstname.$error.maxlength && signupForm.firstname.$touched">
+        Username must not be longer than 50 characters
+      </span>
+      <span ng-hide="reg.isFavExist">
+        Item not found. Try again.
+      </span>
+      <br>
+
+      <button class="btn btn-submit" ng-disabled="signupForm.$invalid" ng-click="reg.submit()" ng-hide="reg.isRegistered">Submit</button>
+      <span ng-show="reg.isRegistered">Your information has been saved!</span>
+
+
+      <!-- <div style="margin-top: 10px;">
+        Form valid? {{ signupForm.$valid }}
+      </div> -->
+    </form>
+
+  </div>
+</div>
